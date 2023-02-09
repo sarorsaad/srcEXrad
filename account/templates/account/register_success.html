@@ -1,0 +1,14 @@
+
+{% extends 'layouts/auth_base.html' %}
+{% load static %}
+
+<!-- account/templates/account/register_success.html -->
+
+<h1>Registration Successful!</h1>
+<p>Congratulations, your account has been successfully created.</p>
+
+{% if user.is_staff %}
+  <p>As an admin, you can log in <a href="{% url 'Login_Admin' %}">here</a>.</p>
+{% else %}
+  <p>As a user, you can log in <a href="{% url 'Login_User' %}">here</a>.</p>
+{% endif %}

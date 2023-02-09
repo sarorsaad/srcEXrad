@@ -1,0 +1,483 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="min-height: 406.844px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">
+          <i class="fas fa-calendar"></i>
+          Request
+        </h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="https://radiology.extremelab.tech/patient">Home</a></li>
+          <li class="breadcrumb-item active">Booking</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+                  <div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title">Request</h3>
+  </div>
+  <form action="https://radiology.extremelab.tech/patient/bookings" method="POST" enctype="multipart/form-data" novalidate="novalidate">
+      <input type="hidden" name="_token" value="IYmb0EwfV99sOhVvlVRfDUzB29Qy9VObF00dBOzu">        <!-- /.card-header -->
+      <div class="card-body">
+    <div class="row">
+    <div class="col-lg-12">
+        <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <div class="form-check">
+    <input class="form-check-input patient_type" name="patient_type" id="patient" type="radio" value="2" checked="">
+    <label for="patient" class="form-check-label">Current Request</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input patient_type" name="patient_type" id="new_patient" type="radio" value="1">
+                    <label for="new_patient" class="form-check-label">New Request</label>
+                </div>
+            </div>
+            </div>
+            </div>
+                  
+<div class="row patient_info">
+                  
+<div class="col-lg-4">
+<div class="form-group">
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">
+        <i class="fa fa-user"></i>
+    </span>
+    </div>
+    <input type="text" class="form-control" placeholder="Name" 
+    name="name" id="name" value=""  required="">
+</div>
+</div>
+</div>
+                  
+<div class="col-lg-4">
+  <div class="form-group">
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">
+          <i class="fa fa-user"></i>
+      </span>
+      </div>
+      <input type="text" class="form-control" placeholder="MRN" 
+      name="MRN" id="MRN" value=""  required="">
+  </div>
+  </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+            <i class="fa fa-user"></i>
+        </span>
+        </div>
+        <input type="text" class="form-control" placeholder="ID Number" 
+        name="ID Number" id="ID Number" value=""  required="">
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="form-group">
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+              <i class="fa fa-user"></i>
+          </span>
+          </div>
+          <input type="text" class="form-control" placeholder="Age" 
+          name="Age" id="Age" value=""  required="">
+      </div>
+      </div>
+      </div>
+     
+      <div class="col-lg-4">
+        <div class="form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+                <i class="fa fa-user"></i>
+            </span>
+            </div>
+            <select class="form-control" name="gender" placeholder="Gender" id="gender"  required="">
+              <option value=""  selected="Male">Select Gender</option>
+              <option value="male" selected="">Male</option>
+              <option value="female">Female</option>
+          </select>
+        </div>
+        </div>
+        </div>
+       
+        <div class="col-lg-4">
+          <div class="form-group">
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                  <i class="fa fa-user"></i>
+              </span>
+              </div>
+              <select class="form-control" name="Nationality" placeholder="Nationality" id="Nationality"  required="">
+                <option disabled selected>Select Nationality...</option>
+                <option value="Saudi" selected="Saudi">Saudi</option>
+                <option value="Non-Saudi">Non-Saudi</option>
+            </select>
+          </div>
+          </div>
+          </div>
+   
+          <div class="col-lg-4">
+            <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                    <i class="fa fa-user"></i>
+                </span>
+                </div>
+                <select class="form-control" name="Unit Name" placeholder="Unit Name" id="Unit Name"  required="">
+             
+                  <option disabled selected>Unit Name</option>
+                  <option value="ER">Emergency Room</option>
+                  <option value="pedia_ward">Paediatrics Ward</option>
+                  <option value="male_ward">Male Ward</option>
+                  <option value="female_ward">Female Ward</option>
+                  <option value="OB_ward">Obstetrics Ward</option>
+                  <option value="L&D_ward">Labour & Delivery Ward</option>
+                  <option value="covid_ward">Covid Ward</option>
+                  <option value="OPD">Outpatient Department</option>
+                  <option value="referral">Referral</option>
+                </select>
+              </select>
+            </div>
+            </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="form-group">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">
+                      <i class="fa fa-user"></i>
+                  </span>
+                  </div>
+                  <select class="form-control" name="Status" placeholder="Status" id="Status"  required="">
+                    <option selected>Status</option>
+                    <option>emergency/immediatly</option>
+                    <option>urgent/24hrs</option>
+                    <option>routine/ 48 hours</option>
+                </select>
+              </div>
+              </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+            <i class="fa fa-user"></i>
+        </span>
+        </div>
+        <select class="form-control" name="Way of Transport" placeholder="Way of Transport" id="Way of Transport"  required="">
+          <option value=""  selected="">Way of Transport</option>
+          <option>walking</option>
+            <option>wheelchair</option>
+            <option>trolley</option>
+                  </select>
+                </div>
+                </div>
+                </div>
+   
+
+                <div class="col-lg-4">
+                  <div class="form-group">
+                  <div class="input-group mb-3">
+          <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+              <i class="fa fa-user"></i>
+          </span>
+          </div>
+          <select class="form-control" name="Is New Request" placeholder="Is New Request" id="Is New Request"  required="">
+            <option value=""  selected="">Is New Request</option>
+            <option>New Request</option>
+            <option>Follow Up</option>
+                    </select>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                    <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+                <i class="fa fa-user"></i>
+            </span>
+            </div>
+            <select class="form-control" name="Modalities" placeholder="Modalities" id="Modalities"  required="">
+              <option value=""  selected="">Modalities</option>
+              <option>CT</option>
+              <option>US</option>
+              <option>X_ray</option>
+              <option>MRI</option>
+              <option>Mammography</option>
+              <option>Angiogram.</option>
+              <option>Interventional radiological procedures</option>
+              <option>Fluoroscopy</option>
+              <option>Nuclear medicine imaging</option>
+              <option>Molecular Imaging /Positron Emission Tomography /PET scanning</option>
+              <option>Bedside /critical care radiography</option>
+              <option>Portable radiological machines</option>
+                      </select>
+                    </div>
+                    </div>
+                    </div>
+       
+  
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                      <div class="input-group mb-3">
+              <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                  <i class="fa fa-user"></i>
+              </span>
+              </div>
+              <select class="form-control" name="Study Part" placeholder="Study Part" id="Study Part"  required="">
+                <option value=""  selected="">Study Part</option>
+                <option>Abdomen</option>
+                <option>KUB</option>
+                <option>OB less than 14 Weeks</option>
+                <option>OB more than 14 Weeks</option>
+                <option>Brain</option>
+                <option>Neck</option>
+                <option>Chest</option>
+                <option>pelvis</option>
+                <option>pan-CT</option>
+                <option>thyroid</option>
+                <option>breast</option>
+                <option>scrotal</option>
+                <option>cervical spine</option>
+                <option>L/S spine</option>
+                <option>D/L spine</option>
+                <option>doppler-venous-lower</option>
+                <option>doppler-arterial-lower</option>
+                <option>doppler-venous-upper</option>
+                <option>doppler-arterial-upper</option>
+                <option>elbow</option>
+                <option>wrist</option>
+                <option>hand</option>
+                <option>hip</option>
+                <option>knee</option>
+                <option>ankle</option>
+                <option>foot</option>
+               
+                        </select>
+                      </div>
+                      </div>
+                      </div>
+
+                      <div class="col-lg-4">
+                        <div class="form-group">
+                        <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                    <i class="fa fa-user"></i>
+                </span>
+                </div>
+                <select class="form-control" name="Side Label" placeholder="Side Label" id="Side Label"  required="">
+                  <option value=""  selected="">Side Label</option>
+                  <option value="right">Right</option>
+                  <option value="left">Left</option>
+                  <option value="none">None</option>
+                          </select>
+                        </div>
+                        </div>
+                        </div>
+
+                      <div class="col-lg-4">
+                        <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="other-study" 
+                            name="other-study" id="other-study" value=""  required="">
+                        </div>
+                        </div>
+                        </div>
+                   
+                <div class="col-lg-4">
+                  <div class="form-group">
+                  <div class="input-group mb-3">
+          <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+              <i class="fa fa-user"></i>
+          </span>
+          </div>
+          <select class="form-control" name="Need Contrast" placeholder="Need Contrast" id="Need Contrast"  required="">
+            <option value=""  selected="">Need Contrast</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+                    </select>
+                  </div>
+                  </div>
+                  </div>
+
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                    <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+                <i class="fa fa-user"></i>
+            </span>
+            </div>
+<select class="form-control" name="Contrast Specification" placeholder="Contrast Specification" 
+id="Contrast Specification"  required="">
+<option value=""  selected="">Contrast Specification</option>
+<option value="oral">Oral</option>
+<option value="iv">IV Contrast</option>
+<option value="oral_iv">Oral and IV Contrast</option>
+                      </select>
+                    </div>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                      <div class="input-group mb-3">
+              <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                  <i class="fa fa-user"></i>
+              </span>
+              </div>
+              <select class="form-control" name="Is Allergies" placeholder="Is Allergies"
+               id="Is Allergies"  required="">
+                <option value=""  selected="">Is Allergies</option>
+                <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                        </select>
+                      </div>
+                      </div>
+                      </div>   
+           
+                      <div class="col-lg-4">
+                        <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Allergy Specification" 
+                            name="Allergy Specification" id="Allergy Specification" value=""  required="">
+                        </div>
+                        </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1">
+                                  <i class="fa fa-user"></i>
+                              </span>
+                              </div>
+                              <input type="text" class="form-control" placeholder="Physician" 
+                              name="Physician" id="Physician" value=""  required="">
+                          </div>
+                          </div>
+                          </div>
+                     
+           
+           
+                  
+      
+                      <div class="col-lg-4">
+                          <div class="form-group">
+                              <div class="form-group">
+                                  <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon1">
+                                          <i class="fas fa-calendar"></i>
+                                      </span>
+</div>
+<input type="text" class="form-control datepicker hasDatepicker" 
+id="Request_date" placeholder="Request Date" name="Request_date" required="" >
+</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+               
+                  
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <div class="card card-danger">
+                              <div class="card-header">
+                                  <h5 class="card-title">
+                                      <i class="fas fa-file-pdf nav-icon"></i>
+                                      Attachment
+                                  </h5>
+                              </div>
+                              <div class="card-body">
+                                  <div class="form-group">
+                                      <label for="exampleInputFile">
+                                          Attachment Image (optional)
+                                      </label>
+                                      <div class="input-group">
+                                          <div class="custom-file">
+                                              <input type="file" name="attach" accept="image/*" class="custom-file-input" id="attachment">
+                                              <label class="custom-file-label" for="attachment">Choose file</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- /.card-body -->
+      <div class="card-footer">
+          <button type="submit" class="btn btn-primary">
+              Save
+          </button>
+      </div>
+      <!-- /.card-footer -->
+  </form>
+
+
+</div>
+
+        <input type="hidden" id="system_currency" value="USD">
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+
+  </div>
+  <!-- /.content-wrapper -->
+  
+
+            {% endblock content %}
+           

@@ -1,0 +1,88 @@
+{% extends 'layouts/auth_base.html' %}
+
+
+{% block content %}
+
+<form action="{% url 'account:register_submit' %}"
+ method="post" class="validate-form" id="register_form">
+ {% csrf_token %}
+
+    <span class="login100-form-title p-b-20 p-t-20">
+        Create Account
+    </span>
+
+    <div class="validate-input">
+        <div class="row form-group">
+                <h5 class="col-lg-3 col-md-3 col-sm-3">
+                    Login As      
+        </h5>
+                <div class="col-lg-9 col-md-9 col-sm-9 d-inline">
+                    <input type="radio" name="user" id="Admin" value="Admin" required=""> <label for="Admin" class="d-inline">Admin</label><br>
+                    <input type="radio" name="user" id="User" value="User" required=""> <label for="User" class="d-inline">User</label>
+                    
+                </div>
+            </div>
+        </div>
+    
+    <div class="wrap-input100 validate-input ">
+        <input class="input100" type="text" name="name" value="{{ request.POST.name }}" required="">
+        <span class="focus-input100"></span>
+        <span class="label-input100">Name</span>
+        {% if form.errors.name %}
+            <span class="error-message">{{ form.errors.name }}</span>
+        {% endif %}
+    </div>
+
+   
+
+    <div class="wrap-input100 validate-input ">
+        <input class="input100" type="text" name="username" value="" required="">
+        <span class="focus-input100"></span>
+        <span class="label-input100">Username</span>
+    </div>
+
+    <div class="wrap-input100 validate-input ">
+        <input class="input100" type="email" name="email" value="" required="">
+        <span class="focus-input100"></span>
+        <span class="label-input100">Email</span>
+    </div>
+
+    <div class="wrap-input100 validate-input ">
+        <input class="input100 datepicker hasDatepicker" type="text" name="Password" value=""  required="" id="">
+        <span class="focus-input100"></span>
+        <span class="label-input100">Password</span>
+    </div>
+
+    <div class="wrap-input100 validate-input ">
+        <input class="input100" type="text" name="confirm Password" value="" required="">
+        <span class="focus-input100"></span>
+        <span class="label-input100">confirm Password</span>
+    </div>
+
+    <div class="container-login100-form-btn">
+        <button class="login100-form-btn">
+            Submit
+        </button>
+    </div>
+
+</form>
+
+<span class="login100-form-title p-b-20 p-t-20">
+    <a href="{% url 'account:Login_Admin' %}"> 
+        <h5 class="d-inline">
+            <i class="fas fa-sign-in-alt"></i> 
+            Login Admin
+        </h5>
+    </a>
+</span>
+
+<span class="login100-form-title p-b-20 p-t-20">
+    <a href="{% url 'account:Login_User' %}"> 
+        <h5 class="d-inline">
+            <i class="fas fa-sign-in-alt"></i> 
+            Login User
+        </h5>
+    </a>
+</span>
+
+{% endblock content %}
